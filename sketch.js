@@ -35,6 +35,22 @@ function draw() {
   if(border1.y > displayHeight){
     border1.y =  displayHeight/2 -400;
   } 
-  
+  spawnCars();
   drawSprites();
+}
+
+function spawnCars(){
+  if(World.frameCount % 100 == 0){
+    var car = createSprite(random(displayWidth/2-200,displayWidth/2+200),displayHeight+100,10,10);
+    car.velocityY = -5;
+    var rand = Math.round(random(1,2));
+    switch(rand){
+      case 1: car.addImage(car1img);
+      break;
+      case 2: car.addImage(car2img);
+      break;
+      default : break;
+    }
+    car.scale = 0.5;
+  }
 }
